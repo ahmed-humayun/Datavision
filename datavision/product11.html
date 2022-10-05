@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Xbox Series X</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+    <script src="localstoragemanager.js"></script>
+    <script src="catalog.js"></script>
+    <script>
+      if(getCookie("valid") !="true") location.href="login.html";
+    </script>
+</head>
+<body>
+    <div class="wrapper row1">
+        <header id="header" class="clear">
+          <div id="hgroup">
+            <h1><a href="index.html">Datavision</a></h1>
+            <h2>Sharing the technology of your life</h2>
+          </div>
+          <form action="#" method="post">
+            <fieldset>
+              <input type="button" id="cart" value="Shopping Cart" onclick="document.location='cart.html'">
+            </fieldset>
+          </form>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li>
+                <script>
+                  if(getCookie("valid") =="true")
+                  {
+                  document.writeln("<a href='logoff.html'>Log off</a>");
+                  }
+                  else
+                  {
+                  document.writeln("<a href='index.html'>Login</a></td>");
+                  }
+                  </script>
+                </li>
+            </ul>
+          </nav>
+        </header>
+    </div>
+    <div class="wrapper row2">
+      <div id="container" class="clear">
+    <div id="intro">
+        <section class="clear">
+          <!-- article 1 -->
+          <article class="two_quarter">
+            <h2>Xbox Series X</h2>
+            <img src ="images/xbox.jpg" width="550" height="300">
+            <h3>Price: $499 </h3>
+            <script>
+              document.writeln("<input type='button' value='add To Cart' onclick=\"addCookie('"+catalog[7].code+"');storecart();alert('Item Added');\" />");
+            </script>
+            <p>
+                <ul>
+                    <li>
+                        4K/60fps gameplay (4K/120Hz support)
+                    </li>
+                    <li>
+                        Dolby Vision and Atmos support
+                    </li>
+                </ul>                
+            </p>
+            <h3>
+                Specifications
+            </h3>
+            <ul>
+                <li>
+                   CPU: Eight-core AMD Zen 2 CPU @ 3.8GHz
+                </li>
+                <li>
+                    GPU: AMD RDNA 2 GPU 52 CUs @ 1.825GHz
+                </li>
+                <li>
+                    RAM: 16GB
+                </li>
+                <li>
+                    Storage: 1TB SSD
+                </li>
+                <li>
+                    Optical Drive: 4K UHD Blu-ray Drive
+                </li>
+            </ul>
+
+          </article>
+        </section>
+    </div>
+  </div>
+  </div>
+    <div class="wrapper row3">
+        <footer id="footer" class="clear">
+          <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+          <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+        </footer>
+      </div>
+</body>
+</html>

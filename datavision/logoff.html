@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html><head>
+<title>LOGIN</title>
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<script src="localstoragemanager.js"></script>
+<script src="catalog.js"></script>
+<script>
+if(getCookie("valid") !="true") location.href="login.html";
+</script>
+<script>
+function logoff()
+{
+	storecart();
+	delCookie("valid");
+	delCookie("whoami");
+	for(var i=0;i<catalog.length;i++)
+		if(getCookie(catalog[i].code)!=null) delCookie(catalog[i].code);
+	location.href="login.html";
+}
+
+</script>
+</head>
+<body>
+	<div class="wrapper row1">
+		<header id="header" class="clear">
+		  <div id="hgroup">
+			<h1><a href="index.html">Datavision</a></h1>
+			<h2>Sharing the technology of your life</h2>
+		  </div>
+		  <form action="#" method="post">
+			<fieldset>
+			  <input type="button" id="cart" value="Shopping Cart">
+			</fieldset>
+		  </form>
+		  <nav>
+			<ul>
+			  <li><a href="index.html">Home</a></li>
+			  <li><a href="products.html">Products</a></li>
+			  <li><a href="about.html">About Us</a></li>
+			  <li><a href="contact.html">Contact Us</a></li>
+			  <li>
+				<script>
+				  if(getCookie("valid") =="true")
+				  {
+				  document.writeln("<a href='logoff.html'>Log off</a>");
+				  }
+				  else
+				  {
+				  document.writeln("<a href='index.html'>Login</a></td>");
+				  }
+				  </script>
+				</li>
+			</ul>
+		  </nav>
+		</header>
+	  </div>
+
+	  <div class="wrapper row2">
+		<div id="container" class="clear">
+			<h1>Logoff</h1>
+			<center>
+			<form>
+   				<input type="button" value="Logoff" onclick="logoff();" /></center>
+			</form>
+			</center>
+		</div>
+	</div>
+</body>
+</html>

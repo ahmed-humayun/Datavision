@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Registration</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles/layout.css" type="text/css">
+<link rel="stylesheet" href="styles/logincss.css" type="text/css">
+<script src="localstoragemanager.js"></script>
+<script>
+function register()
+{
+	var user=getCookie(userid.value);
+	if(user == null )
+	{
+		setCookie(userid.value,password.value);
+		location.href="login.html"
+	}
+	else alert("USER ALREADY IN USE");
+}
+</script>
+</head>
+<body>
+<div class="wrapper row1">
+  <header id="header" class="clear">
+    <div id="hgroup">
+      <h1><a href="index.html">Datavision</a></h1>
+      <h2>Sharing the technology of your life</h2>
+    </div>
+    <form action="#" method="post">
+      <fieldset>
+        <fieldset>
+          <input type="button" id="cart" value="Shopping Cart">
+        </fieldset>
+      </fieldset>
+    </form>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li>
+          <script>
+            if(getCookie("valid") =="true")
+            {
+            document.writeln("<a href='logoff.html'>Log off</a>");
+            }
+            else
+            {
+            document.writeln("<a href='index.html'>Login</a></td>");
+            }
+            </script>
+          </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+<div class="wrapper row2">
+  <div id="container" class="clear">
+  <div id="intro">
+    <h1>Registration</h1>
+    <center>
+    <form>
+    <table>
+        <table>
+            <tr>
+                <td width="100">Username:</td>
+                <td width="300" align="center"><input type="text" id="userid" /></td>
+            </tr>
+            <tr>
+                <td width="100">Password:</td>
+                <td width="300" align="center"><input type="text" id="password"/></td>
+            </tr>
+            <tr>
+                <td width="100">Confirm Password:</td>
+                <td width="300" align="center"><input type="text" id="password2"/></td>
+            </tr>
+    <tr><td colspan="2" align="center"><input type="button" value="Register" onclick="register();"/>
+    <br /><a href="login.html">Login</a>
+    </td></tr>
+    </table>
+    </form>
+    </center>
+  </div>
+</div>
+</div>
+<div class="wrapper row3">
+    <footer id="footer" class="clear">
+      <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+      <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+    </footer>
+  </div>
+</body>
+</html>

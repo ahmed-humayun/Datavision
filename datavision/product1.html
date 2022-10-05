@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>iPhone 12</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+    <script src="localstoragemanager.js"></script>
+    <script src="catalog.js"></script>
+    <script>
+      if(getCookie("valid") !="true") location.href="login.html";
+    </script>
+</head>
+<body>
+    <div class="wrapper row1">
+        <header id="header" class="clear">
+          <div id="hgroup">
+            <h1><a href="index.html">Datavision</a></h1>
+            <h2>Sharing the technology of your life</h2>
+          </div>
+          <form action="#" method="post">
+            <fieldset>
+              <input type="button" id="cart" value="Shopping Cart" onclick="document.location='cart.html'">
+            </fieldset>
+          </form>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li>
+                <script>
+                  if(getCookie("valid") =="true")
+                  {
+                  document.writeln("<a href='logoff.html'>Log off</a>");
+                  }
+                  else
+                  {
+                  document.writeln("<a href='index.html'>Login</a></td>");
+                  }
+                  </script>
+                </li>
+            </ul>
+          </nav>
+        </header>
+    </div>
+    <div class="wrapper row2">
+      <div id="container" class="clear">
+    <div id="intro">
+        <section class="clear">
+          <!-- article 1 -->
+          <article class="two_quarter">
+            <h2>Apple iPhone 12</h2>
+            <img src ="images/iphone12.jpg" width="300" height="400">
+            <h3>Price: $799 </h3>
+            <script>
+            document.writeln("<input type='button' value='add To Cart' onclick=\"addCookie('"+catalog[0].code+"');storecart();alert('Item Added');\" />");
+          </script>
+            <p>
+                <ul>
+                    <li>
+                        Attractive new design with MagSafe
+                    </li>
+                    <li>
+                        Comprehensive 5G coverage
+                    </li>
+                    <li>
+                        Incredible performance
+                    </li>
+                </ul>                
+            </p>
+            <h3>
+                Specifications
+            </h3>
+            <ul>
+                <li>
+                    Display: 6.1-inch OLED (2532x1170)
+                </li>
+                <li>
+                    CPU: A14 Bionic
+                </li>
+                <li>
+                    RAM: 4GB
+                </li>
+                <li>
+                    Storage: 128GB
+                </li>
+                <li>
+                    Rear camera: 12MP wide, 12MP ultrawide
+                </li>
+                <li>
+                    Front camera: 12MP
+                </li>
+                <li>
+                    Weight: 5.78 ounces
+                </li>
+                <li>
+                    Operating System: iOS 14
+                </li>
+            </ul>
+
+          </article>
+        </section>
+    </div>
+  </div>
+  </div>
+    <div class="wrapper row3">
+        <footer id="footer" class="clear">
+          <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+          <p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+        </footer>
+      </div>
+</body>
+</html>

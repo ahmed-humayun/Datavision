@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shipping</title>
+	<link rel="stylesheet" href="styles/layout.css" type="text/css">
+	<script src="localstoragemanager.js"></script>
+	<script src="catalog.js"></script>
+	<script>
+		if(getCookie("valid") !="true") location.href="login.html";
+	</script>
+	<style>
+		th,td{border:solid .5px black;}
+	</style>
+	<script>
+		function cart()
+		{
+			var count=0;
+			var str="<table><tr><th>ITEM</th><th>NAME</th><th>QTY</th><th>PRICE</th><th>TOTAL</th></tr>";
+			total=0;
+			for(var i=0;i<catalog.length;i++)
+			{
+				var qty=getCookie(catalog[i].code);
+				if((qty!=null) && (qty !=0))
+				{
+					count++;
+					var name=catalog[i].code+"qty";
+					total+=(parseInt(qty)*catalog[i].price);
+					
+					str+="<tr><td><img src='"+catalog[i].image+"' width='100px'/></td><td>"+catalog[i].name+
+							"</td><td class='right'>"+qty+"</td><td class='right'>$"+catalog[i].price.toFixed(2)+
+							"</td><td class='right'>$"+(parseInt(qty)*catalog[i].price).toFixed(2)+"</td></tr>";
+				}
+			}
+			str+="<tr><td colspan='4'>TOTAL</td><td class='right'>$"+total.toFixed(2)+"</td></tr>";
+			total=total+total*.1;
+			str+="<tr><td colspan='4'>10%TAX AMOUNT</td><td class='right'>$"+(total*.1).toFixed(2)+"</td></tr><tr><td colspan='4'>GRAND TOTAL</td><td class='right'>$"+total.toFixed(2) +"</td></tr>";
+			str+="<tr><td colspan='4'>SHIPPING";
+			str+="<select id='ship' onchange='shipping();'>";
+			str+="<option value=''></option>";
+			str+="<option value='0'>$0-Ground Delivery</option>";
+			str+="<option value='10'>$10-Express Delivery</option>";
+			str+="<option value='25'>$25-Overnight Delivery</option></select>  </td><td id='info'></td></tr>";
+			cartable.innerHTML=str;
+		}
+
+		function shipping()
+		{
+			var select=document.getElementById("ship");
+			var index=select.selectedIndex;
+			var amount=select.options[index].value;
+			alert(amount);
+			info.innerHTML="$"+(parseFloat(amount)+total).toFixed(2);
+		}
+	</script>
+</head>
+<body onload="cart();">
+	<div class="wrapper row1">
+		<header id="header" class="clear">
+		  <div id="hgroup">
+			<h1><a href="index.html">Datavision</a></h1>
+			<h2>Sharing the technology of your life</h2>
+		  </div>
+		  <form action="#" method="post">
+			<fieldset>
+			  <fieldset>
+				<input type="button" id="cart" value="Place Order" onclick="document.location='thankyou.html'">
+			  </fieldset>
+			</fieldset>
+		  </form>
+		  <nav>
+			<ul>
+			  <li><a href="index.html">Home</a></li>
+			  <li><a href="products.html">Products</a></li>
+			  <li><a href="about.html">About Us</a></li>
+			  <li><a href="contact.html">Contact Us</a></li>
+			  <li>
+				<script>
+					if(getCookie("valid") =="true")
+					{
+					document.writeln("<a href='logoff.html'>Log off</a>");
+					}
+					else
+					{
+					document.writeln("<a href='index.html'>Login</a></td>");
+					}
+					</script>
+			  </li>
+			</ul>
+		  </nav>
+		</header>
+	  </div>
+		<div class="wrapper row2" >
+			<div id="container" class="clear">
+				<div id="cartable">
+				</div>
+			</div>
+		</div>
+	<div class="wrapper row3">
+		<footer id="footer" class="clear">
+		<p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">Domain Name</a></p>
+		<p class="fl_right">Template by <a target="_blank" href="https://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+		</footer>
+  </div>
+</body>
+</html>
